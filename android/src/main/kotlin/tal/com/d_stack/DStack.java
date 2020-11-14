@@ -66,9 +66,10 @@ public class DStack {
         this.context = context;
 
         engine = new FlutterEngine(context);
-        engine.getDartExecutor().executeDartEntrypoint(
-                DartExecutor.DartEntrypoint.createDefault()
-        );
+        // 预加载会导致问题，暂时去掉
+//        engine.getDartExecutor().executeDartEntrypoint(
+//                DartExecutor.DartEntrypoint.createDefault()
+//        );
         FlutterEngineCache
                 .getInstance()
                 .put(ENGINE_ID, engine);
